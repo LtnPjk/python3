@@ -64,11 +64,12 @@ print("Subscribe to: "+subTopic)
 print("Client ID: "+clientId)
 print("")
 
-client = mqtt.Client('subTest') #new instance
+client = mqtt.Client(subTopic) #new instance
 client.on_connect = on_connect #bind callback function
 client.on_disconnect = on_disconnect
 client.on_message = on_message
-print('KASODKASDK')
 client.connect(broker, 1883)
-client.loop_start()
-client.subscribe(subTopic)
+while True:
+    client.loop_start()
+    client.subscribe(subTopic)
+    time.sleep(1)
