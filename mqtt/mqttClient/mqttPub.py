@@ -18,13 +18,13 @@ def help_me():
     print('List of valid arguments:')
     print('-b = broker adress')
     print('-m = message')
-    print('-p = topic')
+    print('-t = topic')
 
 #parse any arguments passed on call
 pT = ''
 pM = ''
 try:
-    opts, args = getopt.getopt(sys.argv[1:],"p:m:b:", ["pT=","pM=","b="])
+    opts, args = getopt.getopt(sys.argv[1:],"t:m:b:", ["pT=","pM=","b="])
 except getopt.GetoptError:
     print('Error: invalid argument')
     help_me()
@@ -33,7 +33,7 @@ for opt, arg in opts:
     if opt in ('-m', '--pM'):
         message = arg
 
-    elif opt in ('-p','--pT'):
+    elif opt in ('-t','--pT'):
         pubTopic = arg
 
     elif opt in('-b','--b'): 
