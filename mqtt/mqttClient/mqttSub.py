@@ -14,18 +14,18 @@ def help_me():
     print()
     print('List of valid arguments:')
     print('-b = broker adress')
-    print('-p = topic')
+    print('-t = topic')
 
 #parse any arguments passed on call
 sT = ''
 try:
-    opts, args = getopt.getopt(sys.argv[1:],"s:b:", ["sT=","b="])
+    opts, args = getopt.getopt(sys.argv[1:],"t:b:", ["sT=","b="])
 except getopt.GetoptError:
     print('Error: invalid argument')
     help_me()
     sys.exit(2)
 for opt, arg in opts:
-    if opt in ('-s','--sT'):
+    if opt in ('-t','--sT'):
         subTopic = arg
 
     elif opt in('-b','--b'): 
